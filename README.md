@@ -1,2 +1,2 @@
 # node-tdd
-developing Test-Driven(TDD) APIs. We use ExpressJS, Jest
+developing Test-Driven(TDD) APIs. using ExpressJS, Jest.
