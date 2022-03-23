@@ -2,6 +2,7 @@ const request = require('supertest')
 const app = require('./app')
 
 const todo = {
+  id: 1,
   name: 'a name',
 }
 
@@ -14,10 +15,13 @@ describe('Todos', () => {
       .then((res) => {
         expect(res.body).toEqual(
           expect.arrayContaining([
-            expect.objectContaining({
-              name: expect.any(String),
-              compledted: expect.any(Boolean),
-            }),
+            expect.objectContaining(
+              {
+                id: expect.any(Number),
+                name: expect.any(String),
+                completed: expect.any(Boolean),
+              }
+            ),
           ])
         )
       })
@@ -39,8 +43,9 @@ describe('Todos', () => {
       .then((res) => {
         expect(res.body).toEqual(
           expect.objectContaining({
+            id: expect.any(Number),
             name: expect.any(String),
-            compledted: expect.any(Boolean),
+            completed: expect.any(Boolean),
           })
         )
       })
@@ -61,7 +66,7 @@ describe('Todos', () => {
         )
       })
   })
-  
+
   it('Update /todos/id --> updating a todo with id', () => {})
   it('Delete /todos/id --> delete a todo with id', () => {})
 })
